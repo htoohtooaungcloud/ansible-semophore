@@ -68,4 +68,5 @@
           - docker-buildx-plugin
           - docker-scan-plugin
           - docker-compose-plugin
+        state: present  
         update_cache: yes
