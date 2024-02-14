@@ -3,6 +3,13 @@
   hosts: web_servers
   gather_facts: yes
   tasks:
-    - name: Display hostname and IP address
-      debug:
-        msg: "Hostname: {{ ansible_hostname }}, IP Address: {{ ansible_default_ipv4.address }}"
+    - name: Update packages with apt
+      when: ansible_pkg_mgr == 'apt'
+      apt:
+        update_cache: yes
+        upgrade: yes
+        
+    - name: Upgrade packages with apt
+      when: ansible_pkg_mgr == 'apt'
+      apt:
+        upgrade: dist
