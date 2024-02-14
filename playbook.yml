@@ -2,6 +2,12 @@
 - name: Get hostname and IP address of Alpine hosts
   hosts: web_servers
   gather_facts: yes
+  become: true
+  vars:
+    arch_mapping:  # Map ansible architecture {{ ansible_architecture }} names to Docker's architecture names
+      x86_64: amd64
+      aarch64: arm64
+      
   tasks:
     - name: Update packages with apt
       when: ansible_pkg_mgr == 'apt'
