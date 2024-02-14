@@ -1,6 +1,6 @@
 all:
   hosts:
     web_servers:
-      ansible_host: 192.168.18.39
-      ansible_user: vagrant
+      ansible_host: 18.140.58.86
+      ansible_user: ubuntu
       host_key_checking: false
